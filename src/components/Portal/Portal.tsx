@@ -20,12 +20,12 @@ const Portal = ({ isOpen, onClose, children }: PortalProps) => {
   return createPortal(
     <div
       id="portal"
-      className="fixed inset-0 flex items-center justify-center bg-amber-950/20"
+      className="fixed inset-0 flex items-center justify-center bg-black/70"
       onClick={onClose}
     >
       {' '}
       <div
-        className="bg-black p-6 rounded relative"
+        className="bg-black p-6 rounded border-2 border-amber-300 relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button className="absolute top-2 right-2" onClick={onClose}>

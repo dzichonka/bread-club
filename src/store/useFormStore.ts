@@ -1,11 +1,6 @@
+import type { IUserData } from '@/types/types';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
-
-export type FormData = {
-  name: string;
-  email: string;
-  bread: string;
-};
 
 type FormState = {
   users: FormData[];
@@ -13,9 +8,22 @@ type FormState = {
   reset: () => void;
 };
 
-const initialUsers: FormData[] = [
-  { name: 'Anna', email: 'anna@example.com', bread: 'Baguette' },
-  { name: 'Bob', email: 'bob@example.com', bread: 'Ciabatta' },
+const initialUsers: IUserData[] = [
+  {
+    name: 'Anna',
+    age: 25,
+    email: 'anna@example.com',
+    gender: 'female',
+    picture: '/images/anna.png',
+    country: 'Germany',
+  },
+  {
+    name: 'Bread',
+    age: 15,
+    email: 'bread-pit@example.com',
+    gender: 'other',
+    country: 'Germany',
+  },
 ];
 
 export const useFormStore = create<FormState>()(
