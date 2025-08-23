@@ -3,8 +3,8 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
 type FormState = {
-  users: FormData[];
-  addUser: (user: FormData) => void;
+  users: IUserData[];
+  addUser: (user: IUserData) => void;
   reset: () => void;
 };
 
@@ -22,7 +22,7 @@ const initialUsers: IUserData[] = [
     age: 15,
     email: 'bread-pit@example.com',
     gender: 'other',
-    country: 'Germany',
+    country: 'Poland',
   },
 ];
 

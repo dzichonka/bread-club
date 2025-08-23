@@ -12,7 +12,7 @@ function App() {
     <div className="container">
       <Portal isOpen={openForm !== null} onClose={() => setOpenForm(null)}>
         {openForm === 'uncontrolled' && <UncontrolledForm />}
-        {openForm === 'hook' && <HookForm />}
+        {openForm === 'hook' && <HookForm onClose={() => setOpenForm(null)} />}
       </Portal>
       <main className="section">
         <h1>🥯 The Bread Club App 🥖</h1>
