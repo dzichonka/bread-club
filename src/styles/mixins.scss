@@ -1,0 +1,69 @@
+@use './fonts.scss' as fonts;
+@use './variables.scss' as vars;
+
+@mixin text($fs: 1rem) {
+  font-family: fonts.$first-family;
+  font-size: $fs;
+  font-weight: 400;
+  line-height: 1;
+}
+
+@mixin btn($w: auto) {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  width: $w;
+  padding: 0.5rem 1rem;
+  border: none;
+  font-family: fonts.$font-family;
+  color: vars.$color-cyan-300;
+  background-color: vars.$color-black;
+  outline: none;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover {
+      scale: 1.05;
+      color: vars.$color-lime-300;
+    }
+  }
+
+  @media (width <= 750px) {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@mixin btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: none;
+  color: vars.$color-cyan-300;
+  background-color: transparent;
+  outline: none;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover {
+      scale: 1.2;
+      color: vars.$color-lime-300;
+    }
+  }
+}
