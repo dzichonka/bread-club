@@ -19,13 +19,9 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@redux-devtools/extension": "^3.3.0",
     "@tailwindcss/vite": "^4.1.11",
-    "@tanstack/react-query": "^5.84.1",
-    "@tanstack/react-query-devtools": "^5.84.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-hook-form": "^7.62.0",
     "react-icons": "^5.5.0",
     "zod": "^4.1.0",
     "zustand": "^5.0.8"
@@ -34,7 +30,6 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.33.0",
-    "@tanstack/eslint-plugin-query": "^5.83.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",

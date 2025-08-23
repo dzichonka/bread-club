@@ -25,6 +25,6 @@ export const useFormStore = create<FormState>()(
       set((state) => ({
         users: [...state.users, user],
       })),
-    reset: () => set({ users: initialUsers }),
+    reset: () => set({ users: [] }),
   }))
 );

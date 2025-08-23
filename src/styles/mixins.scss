@@ -16,11 +16,11 @@
   justify-content: center;
   width: $w;
   padding: 0.5rem 1rem;
-  border: none;
+  border: solid 2px vars.$color-primary;
+  border-radius: 0.5rem;
   font-family: fonts.$font-family;
-  color: vars.$color-cyan-300;
+  color: vars.$color-primary;
   background-color: vars.$color-black;
-  outline: none;
 
   &:disabled {
     cursor: default;
@@ -33,7 +33,8 @@
 
     &:hover {
       scale: 1.05;
-      color: vars.$color-lime-300;
+      border: solid 2px vars.$color-secondary;
+      color: vars.$color-secondary;
     }
   }
 
@@ -48,7 +49,8 @@
   justify-content: center;
   padding: 0.5rem;
   border-radius: none;
-  color: vars.$color-cyan-300;
+  color: vars.$color-primary;
+  text-decoration: underline;
   background-color: transparent;
   outline: none;
 
@@ -63,7 +65,7 @@
 
     &:hover {
       scale: 1.2;
-      color: vars.$color-lime-300;
+      color: vars.$color-secondary;
     }
   }
 }
