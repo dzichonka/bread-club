@@ -20,6 +20,7 @@ const Portal = ({ isOpen, onClose, children }: PortalProps) => {
   return createPortal(
     <div
       id="portal"
+      role="dialog"
       className="fixed inset-0 flex items-center justify-center bg-black/70"
       onClick={onClose}
     >
