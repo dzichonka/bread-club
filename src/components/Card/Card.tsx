@@ -1,6 +1,6 @@
-import type { IUserData } from '@/types/types';
+import type { IFormData } from '@/types/types';
 
-const Card = (data: IUserData): React.JSX.Element => {
+const Card = (data: IFormData): React.JSX.Element => {
   const { name, age, email, gender, picture, country } = data;
 
   return (

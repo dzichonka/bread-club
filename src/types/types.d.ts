@@ -8,15 +8,6 @@ export interface IFormData {
   confirmPassword: string;
   gender: Gender;
   acceptTnC: boolean;
-  picture?: string;
-  country: string;
-}
-
-export interface IUserData {
-  name: string;
-  age: number;
-  email: string;
-  gender: Gender;
-  picture?: string;
+  picture: string;
   country: string;
 }

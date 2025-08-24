@@ -6,7 +6,7 @@ const Members = () => {
   const { reset } = useFormStore((state) => state);
   return (
     <div className="flex flex-col border-2 border-amber-300 rounded-md p-4 gap-4">
-      <h2 className="text-center">Our Members</h2>
+      <h2 className="text-center">🍞 Our Members 🍞</h2>
       <div>
         {members.length > 0 &&
           members.map((user, index) => <Card key={index} {...user} />)}

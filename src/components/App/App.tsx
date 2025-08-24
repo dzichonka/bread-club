@@ -15,24 +15,25 @@ function App() {
         {openForm === 'hook' && <HookForm onClose={() => setOpenForm(null)} />}
       </Portal>
       <main className="section">
-        <h1>🥯 The Bread Club App 🥖</h1>
-        <p>
-          Do you identify yourself as bread? Welcome to the club! Here you’ll
-          find like-minded bread enthusiasts. 🫓
+        <h1 className="text-center text-[40px]">🍞 The Bread Club App 🥖</h1>
+        <p className="text-center">
+          🥪 Do you identify yourself as bread? Welcome to the club! Here you’ll
+          find like-minded bread enthusiasts. 🥪
         </p>
-        <div>
-          🍞 Not sure what kind of bread you are? Take the{' '}
+        <div className="text-center">
+          🥯 Not sure what kind of bread you are? Take the{' '}
           <a className="btn-icon" href="https://w-o-s.ru/article/19262">
             test
           </a>{' '}
-          and discover your true grain. 🥪
+          and discover your true grain. 🥯
         </div>
-        <div>
+        <div className="text-center">
           🥐 Ready to join? Fill out the form and become part of our community.
+          🥐
         </div>
-        <p>
-          Register in the Bread Club as yourself... or as your bread
-          personality!
+        <p className="text-center">
+          🥖 Register in the Bread Club as yourself... or as your bread
+          personality! 🥖
         </p>
         <div className="flex gap-4 justify-center">
           {' '}
