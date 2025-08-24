@@ -4,6 +4,10 @@ import type { Gender, IFormData } from '@/types/types';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { schema, type FormSchema } from '@/validation/formSchema';
+import {
+  getPasswordStrength,
+  getStrengthColor,
+} from '@/validation/getPasswordStrength';
 
 type HookFormProps = {
   onClose: () => void;
@@ -15,12 +19,15 @@ const HookForm = ({ onClose }: HookFormProps) => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isValid, isSubmitting },
   } = useForm<FormSchema>({
     resolver: zodResolver(schema),
     mode: 'onChange',
     reValidateMode: 'onChange',
   });
+  const password = watch('password', '');
+  const strength = getPasswordStrength(password);
 
   const onSubmit = (data: FormSchema) => {
     const file = data.picture[0];
@@ -97,10 +104,17 @@ const HookForm = ({ onClose }: HookFormProps) => {
           id="password"
           {...register('password')}
         />
-        {errors.password && (
-          <span className="text-xs text-amber-100 h-0 text-end">
-            {errors.password.message}
-          </span>
+        {password && (
+          <div className="text-xs text-amber-100 h-0 text-end pt-1">
+            <div
+              className={`h-1 ${getStrengthColor(strength)} rounded`}
+              style={{ width: `${(strength / 5) * 100}%` }}
+            />
+            <span>
+              {strength < 3 ? 'Weak' : strength < 5 ? 'Medium' : 'Strong'}{' '}
+              password
+            </span>
+          </div>
         )}
       </div>
 

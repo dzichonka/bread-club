@@ -16,11 +16,9 @@ export const schema = z
 
     email: z.email('Invalid email'),
 
-    password: z.string().min(6, 'Password must be at least 6 characters'),
+    password: z.string(),
 
-    confirmPassword: z
-      .string()
-      .min(6, 'Confirm Password must be the same as Password'),
+    confirmPassword: z.string(),
 
     gender: z.string().min(1, 'Gender is required'),
 
@@ -45,7 +43,7 @@ export const schema = z
     }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Passwords must match',
+    message: 'Passwords do not match',
     path: ['confirmPassword'],
   });
 

@@ -23,11 +23,13 @@ const Members = () => {
       <h2 className="text-center">🍞 Our Members 🍞</h2>
       <div>
         {members.length > 0 &&
-          members.map((user) => (
+          members.map((user, index) => (
             <div
-              key={user.id}
+              key={index}
               className={
-                highlightedId === user.id ? 'border-2 border-amber-300' : ''
+                highlightedId === user.id
+                  ? 'border-2 border-amber-300 rounded-md'
+                  : 'border-2 border-transparent'
               }
             >
               <Card key={user.id} {...user} />

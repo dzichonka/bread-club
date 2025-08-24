@@ -3,6 +3,10 @@ import { useCountryStore } from '@/store/useCountryStore';
 import { useFormStore } from '@/store/useFormStore';
 import type { Gender, IFormData } from '@/types/types';
 import { useRef, useState, type FormEvent } from 'react';
+import {
+  getPasswordStrength,
+  getStrengthColor,
+} from '@/validation/getPasswordStrength';
 
 type UncontrolledFormProps = {
   onClose: () => void;
@@ -13,6 +17,8 @@ const UncontrolledForm = ({ onClose }: UncontrolledFormProps) => {
   const { countries } = useCountryStore();
   const formRef = useRef<HTMLFormElement>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [password, setPassword] = useState('');
+  const strength = getPasswordStrength(password);
 
   const fileToBase64 = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
@@ -130,11 +136,19 @@ const UncontrolledForm = ({ onClose }: UncontrolledFormProps) => {
           id="password"
           name="password"
           required
+          onChange={(e) => setPassword(e.target.value)}
         />
-        {errors.password && (
-          <span className="text-xs text-amber-100 h-0 text-end">
-            {errors.password}
-          </span>
+        {password && (
+          <div className="text-xs text-amber-100 h-0 text-end pt-1">
+            <div
+              className={`h-1 ${getStrengthColor(strength)} rounded`}
+              style={{ width: `${(strength / 5) * 100}%` }}
+            />
+            <span>
+              {strength < 3 ? 'Weak' : strength < 5 ? 'Medium' : 'Strong'}{' '}
+              password
+            </span>
+          </div>
         )}
       </div>
 
