@@ -11,7 +11,9 @@ function App() {
   return (
     <div className="container">
       <Portal isOpen={openForm !== null} onClose={() => setOpenForm(null)}>
-        {openForm === 'uncontrolled' && <UncontrolledForm />}
+        {openForm === 'uncontrolled' && (
+          <UncontrolledForm onClose={() => setOpenForm(null)} />
+        )}
         {openForm === 'hook' && <HookForm onClose={() => setOpenForm(null)} />}
       </Portal>
       <main className="section">

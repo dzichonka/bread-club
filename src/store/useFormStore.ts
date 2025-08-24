@@ -34,12 +34,15 @@ const initialUsers: IFormData[] = [
 ];
 
 export const useFormStore = create<FormState>()(
-  devtools((set) => ({
-    users: initialUsers,
-    addUser: (user) =>
-      set((state) => ({
-        users: [...state.users, user],
-      })),
-    reset: () => set({ users: [] }),
-  }))
+  devtools(
+    (set) => ({
+      users: initialUsers,
+      addUser: (user) =>
+        set((state) => ({
+          users: [...state.users, user],
+        })),
+      reset: () => set({ users: [] }),
+    }),
+    { name: 'FormStore' }
+  )
 );

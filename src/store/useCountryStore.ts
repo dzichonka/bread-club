@@ -7,5 +7,5 @@ type CountryState = {
 };
 
 export const useCountryStore = create<CountryState>()(
-  devtools(() => ({ countries: countries }))
+  devtools(() => ({ countries: countries }), { name: 'CountryStore' })
 );
