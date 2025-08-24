@@ -31,7 +31,7 @@
     cursor: pointer;
     transition: all 0.5s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       border: solid 2px vars.$color-secondary;
       color: vars.$color-secondary;
     }
@@ -62,7 +62,7 @@
     cursor: pointer;
     transition: all 0.5s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       scale: 1.2;
       color: vars.$color-secondary;
     }

@@ -15,8 +15,12 @@ const HookForm = ({ onClose }: HookFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<FormSchema>({ resolver: zodResolver(schema) });
+    formState: { errors, isValid, isSubmitting },
+  } = useForm<FormSchema>({
+    resolver: zodResolver(schema),
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+  });
 
   const onSubmit = (data: FormSchema) => {
     const file = data.picture[0];
@@ -188,7 +192,11 @@ const HookForm = ({ onClose }: HookFormProps) => {
         )}
       </div>
 
-      <input className="btn" type="submit" />
+      <input
+        className="btn"
+        type="submit"
+        disabled={!isValid || isSubmitting}
+      />
     </form>
   );
 };
