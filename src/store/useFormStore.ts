@@ -2,9 +2,14 @@ import type { IFormData } from '@/types/types';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
+interface User extends IFormData {
+  id: string;
+}
+
 type FormState = {
-  users: IFormData[];
-  addUser: (user: IFormData) => void;
+  users: User[];
+  newlyAddedId: string | null;
+  addUser: (user: Omit<IFormData, 'id'>) => void;
   reset: () => void;
 };
 
@@ -37,11 +42,16 @@ export const useFormStore = create<FormState>()(
   devtools(
     (set) => ({
       users: initialUsers,
+      newlyAddedId: null,
       addUser: (user) =>
-        set((state) => ({
-          users: [...state.users, user],
-        })),
-      reset: () => set({ users: [] }),
+        set((state) => {
+          const id = crypto.randomUUID();
+          return {
+            users: [...state.users, { ...user, id }],
+            newlyAddedId: id,
+          };
+        }),
+      reset: () => set({ users: [], newlyAddedId: null }),
     }),
     { name: 'FormStore' }
   )

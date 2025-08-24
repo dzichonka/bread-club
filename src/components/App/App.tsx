@@ -24,7 +24,11 @@ function App() {
         </p>
         <div className="text-center">
           🥯 Not sure what kind of bread you are? Take the{' '}
-          <a className="btn-icon" href="https://w-o-s.ru/article/19262">
+          <a
+            className="btn-icon"
+            href="https://w-o-s.ru/article/19262"
+            target="blank"
+          >
             test
           </a>{' '}
           and discover your true grain. 🥯

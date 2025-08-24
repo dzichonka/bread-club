@@ -35,7 +35,7 @@ const HookForm = ({ onClose }: HookFormProps) => {
         picture: base64,
       };
       addUser(formData);
-      setTimeout(onClose, 500);
+      onClose();
     };
     reader.readAsDataURL(file);
   };

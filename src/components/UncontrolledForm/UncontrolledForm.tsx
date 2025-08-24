@@ -73,7 +73,7 @@ const UncontrolledForm = ({ onClose }: UncontrolledFormProps) => {
     addUser(data);
     setErrors({});
     form.reset();
-    setTimeout(onClose, 500);
+    onClose();
   };
 
   return (
