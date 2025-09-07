@@ -1,0 +1,70 @@
+@use './fonts.scss' as fonts;
+@use './variables.scss' as vars;
+
+@mixin text($fs: 1rem) {
+  font-family: fonts.$first-family;
+  font-size: $fs;
+  font-weight: 400;
+  line-height: 1;
+}
+
+@mixin btn($w: auto) {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: center;
+  width: $w;
+  padding: 0.5rem 1rem;
+  border: solid 2px vars.$color-primary;
+  border-radius: 0.5rem;
+  font-family: fonts.$font-family;
+  color: vars.$color-primary;
+  background-color: vars.$color-black;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover:not(:disabled) {
+      border: solid 2px vars.$color-secondary;
+      color: vars.$color-secondary;
+    }
+  }
+
+  @media (width <= 750px) {
+    padding: 0.5rem 1rem;
+  }
+}
+
+@mixin btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: none;
+  color: vars.$color-primary;
+  text-decoration: underline;
+  background-color: transparent;
+  outline: none;
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  @media (hover: hover) {
+    cursor: pointer;
+    transition: all 0.5s ease;
+
+    &:hover:not(:disabled) {
+      scale: 1.2;
+      color: vars.$color-secondary;
+    }
+  }
+}
